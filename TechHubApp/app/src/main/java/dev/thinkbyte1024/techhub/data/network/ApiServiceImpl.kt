@@ -68,7 +68,7 @@ class ApiServiceImpl(
     override suspend fun updateProducts(request: ProductRequest, id: String?): Product? {
         return try {
             client.post<Product> {
-                url(ApiRoutes.UPDATE + id)
+                url(ApiRoutes.UPDATE + "?id=" + id)
                 body = request
             }
         } catch (ex: RedirectResponseException) {
